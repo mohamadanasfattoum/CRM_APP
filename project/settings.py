@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'anasdb',
+        'NAME': 'elderco',
         'USER':'root',
         'PASSWORD':'112233',
         'HOST':'localhost',
