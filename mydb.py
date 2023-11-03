@@ -1,4 +1,4 @@
-
+from project.secrets import DATABASE_PASSWORD
 
 # pip install mysql-connector-python 
 # pip install pymysql
@@ -8,7 +8,7 @@ import mysql.connector
 database = mysql.connector.connect(
     host = 'localhost',
     user= 'root',
-    passwd= '112233'
+    passwd= DATABASE_PASSWORD
 
 )
 
