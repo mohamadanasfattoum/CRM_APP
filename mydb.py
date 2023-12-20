@@ -16,7 +16,7 @@ database = mysql.connector.connect(
 cursorobject = database.cursor()
 
 # create a database
-cursorobject.execute('CREATE DATABASE elderco')
+cursorobject.execute('CREATE DATABASE crm_db')
 
 
 print('All Done!')
