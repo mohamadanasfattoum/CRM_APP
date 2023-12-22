@@ -3,16 +3,16 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 
-def home(request):
+def home(request): # ruf die seite # wenn ich zu page gehe : GET., wenn ich in page login mache : POST wie senden data. 
     # check to see if login
     if request.method =='POST':
         username = request.POST['username']
         password = request.POST['password']
-        # Authenticate
+        # Authenticate To Login # sichern
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, "You Have Been Logged In!")
+            messages.success(request, "You You are logged in!")
             return redirect('home')
         else:
             messages.success(request, 'Please try again!')
@@ -23,4 +23,6 @@ def home(request):
 
 
 def logout_user(request):
-    pass
+    logout(request)
+    messages.success(request,'You are logged out!')
+    return redirect('home')
