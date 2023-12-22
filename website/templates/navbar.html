@@ -9,13 +9,13 @@
 
 
           {% if user.is_authenticated %}
-          
+
           <li class="nav-item">
-            <a class="nav-link" href="{{url 'logout'}}">Logout</a>
+            <a class="nav-link" href="{%url 'logout'%}">Logout</a>
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{{url 'home'}}">Login</a>
+            <a class="nav-link" href="{% url 'home' %}">Login</a>
           </li>
           {% endif %}
 
