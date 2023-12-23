@@ -12,7 +12,7 @@ def home(request): # ruf die seite # wenn ich zu page gehe : GET., wenn ich in p
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, "You You are logged in!")
+            messages.success(request, "You are logged in!")
             return redirect('home')
         else:
             messages.success(request, 'Please try again!')
