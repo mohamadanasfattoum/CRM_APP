@@ -34,12 +34,13 @@ def register_user(request):
         if form.is_valid():
             form.save()
             # Authenticate, Login
-            user_name = form.cleaned_data['username'] 
+            username = form.cleaned_data['username'] 
             password = form.cleaned_data['password1'] 
             user = authenticate(username=username, password=password)
             login(request, user)
-            messages.success(request, 'You Have Success u y Registered! We come!')
+            messages.success(request, 'You Have successfully Registered! We come!')
             return redirect('home')
     else:
         form = SignUpForm()
         return render(request, 'register.html', {'form':form})
+    return render(request, 'register.html', {'form':form})
