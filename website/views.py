@@ -2,8 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm
+from .models import Record
 
 def home(request): # ruf die seite # wenn ich zu page gehe : GET., wenn ich in page login mache : POST wie senden data. 
+    records = Record.objects.all()
+    
+    
     # check to see if login
     if request.method =='POST':
         username = request.POST['username']
@@ -18,7 +22,7 @@ def home(request): # ruf die seite # wenn ich zu page gehe : GET., wenn ich in p
             messages.success(request, 'Please try again!')
             return redirect('home')
     else:
-        return render(request, 'home.html', {})
+        return render(request, 'home.html', {'records':records})
 
 
 
