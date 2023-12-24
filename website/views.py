@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import SignUpForm
+from .forms import SignUpForm, AddRecordForm
 from .models import Record
 
 def home(request): # ruf die seite # wenn ich zu page gehe : GET., wenn ich in page login mache : POST wie senden data. 
@@ -73,5 +73,30 @@ def delete_record(request, pk):
         return redirect('home')
 
 
+
+
 def add_record(request):
-    return render(request, 'add_record.html', {})
+    form = AddRecordForm(request.POST or None)
+    if request.user.is_authenticated:
+        if request.method == 'POST': 
+            if form.is_valid():
+                add_record = form.save()
+                messages.success(request, 'Record Added..')
+                return redirect(f'home')
+        return render(request, 'add_record.html', {'form':form})
+    else:
+        messages.success(request, 'You Must Be Logged In To Add..')
+        return redirect('home')
+
+
+
+
+# def add_record(request):
+#     if request.method == 'POST': 
+#         form = AddRecordForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return redirect(f'home')
+#     else:
+#         form = AddRecordForm()
+#     return render(request, 'add_record.html', {'form':form})
