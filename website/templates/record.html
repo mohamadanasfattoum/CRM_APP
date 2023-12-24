@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+  
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        {{customer_record.first_name}} 
+        {{customer_record.last_name}}
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">    
+            <li class="list-group-item"><strong>First_name: </strong>{{customer_record.first_name}}</li> 
+            <li class="list-group-item"><strong>Last_name: </strong>{{customer_record.last_name}}</li>
+            <li class="list-group-item"><strong>Email: </strong>{{customer_record.email}}</li> 
+            <li class="list-group-item"><strong>Phone: </strong>{{customer_record.phone}}</li>
+            <li class="list-group-item"><strong>Aaddresse: </strong>{{customer_record.addresse}}</li>
+            <li class="list-group-item"><strong>City: </strong>{{customer_record.city}}</li>
+            <li class="list-group-item"><strong>State: </strong>{{customer_record.state}}</li>
+            <li class="list-group-item"><strong>Zipcode: </strong>{{customer_record.zipcode}}</li>
+            <li class="list-group-item"><strong>Created_at: </strong>{{customer_record.created_at}}</li>
+            <li class="list-group-item"><strong>ID: </strong>{{customer_record.id}}</li>
+        </ul>
+    </div>
+</div>
+
+<br/>
+<a href="{% url 'home' %}"  class="btn btn-secondary  px-5">Back</a>
+
+
+
+
+
+{% endblock content %}
