@@ -39,3 +39,6 @@ To run the application, you will need to follow these steps:
    - Open your web browser and visit `http://localhost:8000` to access the CRM application.
 
 Please note that these instructions assume a basic setup, and additional configuration steps may be required based on your specific environment. It's recommended to refer to the repository's documentation or readme file for more detailed instructions or troubleshooting steps.
+
+### project screenshot
+![](https://github.com/mohamadanasfattoum/CRM_APP/blob/main/add_record.png)
